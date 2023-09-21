@@ -68,7 +68,7 @@ form {
 .remove {
   > div {
     > button {
-      @include button(30px, 20px, #1890ff);
+      @include button(35px, 20px, #1890ff);
       margin-right: 5px;
     }
   }
