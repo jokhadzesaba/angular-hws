@@ -1,0 +1,85 @@
+@mixin button($width, $height, $background) {
+  width: $width;
+  height: $height;
+  background-color: $background;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+form {
+  display: flex;
+  justify-content: center;
+  > div:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 20px;
+    > label {
+      cursor: pointer;
+      > span {
+        color: red;
+      }
+    }
+  }
+  > div:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+    > input {
+      width: 280px;
+    }
+    > label {
+      cursor: pointer;
+      > span {
+        color: #1876ce;
+      }
+    }
+    > button {
+      @include button(78px, 30px, #1890ff);
+    }
+  }
+}
+.informationContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  > .userInformation {
+    display: flex;
+    > div {
+      display: flex;
+    }
+    > div:first-child {
+      gap: 10px;
+      width: 95%;
+    }
+    > div:last-child {
+      gap: 5px;
+      align-items: center;
+      > button:first-of-type {
+        @include button(60px, 20px, red);
+      }
+      > button:last-of-type {
+        @include button(40px, 20px, #1890ff);
+      }
+    }
+  }
+}
+.remove {
+  > div {
+    > button {
+      @include button(30px, 20px, #1890ff);
+      margin-right: 5px;
+    }
+  }
+}
+.secondForm {
+  > div {
+    display: flex;
+    align-items: center;
+    > #updateButton {
+      margin-top: 7px;
+      background-color: #1890ff;
+    }
+  }
+}

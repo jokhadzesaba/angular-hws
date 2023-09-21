@@ -1,0 +1,100 @@
+<form [formGroup]="registrationForm">
+  <div>
+    <label for="email"><span>*</span> E-mail:</label>
+    <label for="password"><span>*</span> Password:</label>
+    <label for="confirmPassword"><span>*</span> Confirm Password:</label>
+    <label for="nickName"><span>*</span> Nickname:</label>
+    <label for="phoneNumber"><span>*</span> Phone Number:</label>
+    <label for="website"><span>*</span> Website:</label>
+  </div>
+  <div>
+    <input id="email" type="email" formControlName="email" />
+
+    <input id="password" type="password" formControlName="password" />
+
+    <input
+      id="confirmPassword"
+      type="password"
+      formControlName="confirmPassword"
+    />
+
+    <input id="nickName" type="text" formControlName="nickname" />
+
+    <input id="phoneNumber" type="text" formControlName="phoneNumber" />
+
+    <input id="website" type="text" formControlName="website" />
+    <label>
+      <input id="agreement" type="checkbox" formControlName="agreement" />
+      I have read the <span>agreement</span>
+    </label>
+    <button
+      (click)="onSubmit()"
+      type="submit"
+      [disabled]="registrationForm.invalid"
+    >
+      Register
+    </button>
+  </div>
+</form>
+<div class="informationContainer" *ngIf="allUser.length !== 0">
+  <div class="userInformation" *ngFor="let user of allUser; let i = index">
+    <div>
+      <span>User {{ i }}:</span>
+      <span>Email: {{ user.email }},</span>
+      <span>Password: {{ user.password }},</span>
+      <span>agreement: {{ user.agreement }},</span>
+      <span>Nickname: {{ user.nickName }},</span>
+      <span>Phone Number:{{ user.phoneNumber }},</span>
+      <span>Website: {{ user.website }}</span>
+    </div>
+    <div>
+      <button (click)="clickRemove(i)">remove</button>
+      <button (click)="editUser(i)">Edit</button>
+    </div>
+  </div>
+  <div class="remove" *ngFor="let user of allUser; let i = index">
+    <div *ngIf="user.isRemoving">
+      <p>
+        This action will remove a user with this email: {{ user.email }}` `Are
+        you sure?`
+      </p>
+      <button (click)="remove(i)">Yes</button>
+      <button (click)="clickRemove(i)">No</button>
+    </div>
+  </div>
+</div>
+<form class="secondForm" [formGroup]="updateForm" *ngIf="editingIndex !== null">
+  <label
+    >Email:
+    <input type="email" formControlName="email" />
+  </label>
+
+  <label
+    >Password:
+    <input type="password" formControlName="password" />
+  </label>
+
+  <label
+    >Confirm Password:
+    <input type="password" formControlName="confirmPassword" />
+  </label>
+
+  <label
+    >Nickname:
+    <input type="text" formControlName="nickname" />
+  </label>
+
+  <label
+    >Phone Number:
+    <input type="text" formControlName="phoneNumber" />
+  </label>
+
+  <label
+    >Website:
+    <input type="text" formControlName="website" />
+  </label>
+  <div>
+    <button (click)="updateUser()" [disabled]="updateForm.invalid" id="updateButton" type="button">Update</button>
+  </div>
+  
+</form>
