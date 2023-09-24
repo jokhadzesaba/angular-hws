@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="input-cur">
+    <select [(ngModel)]="sourceCurrency" (ngModelChange)="convert()">
+      <option>USD</option>
+      <option>EUR</option>
+      <option>GEL</option>
+      <option>TRY</option>
+      <option>JPY</option>
+      <option>BRL</option>
+      <option>AZN</option>
+      <option>CNY</option>
+    </select>
+    <input [(ngModel)]="quantity" (ngModelChange)="convert()" type="number" />
+  </div>
+  <div class="input-cur">
+    <select [(ngModel)]="targetCurrency" (ngModelChange)="convert()">
+      <option>USD</option>
+      <option>EUR</option>
+      <option>GEL</option>
+      <option>TRY</option>
+      <option>JPY</option>
+      <option>BRL</option>
+      <option>AZN</option>
+      <option>CNY</option>
+    </select>
+    <input
+      [(ngModel)]="converted"
+      (ngModelChange)="convertBack()"
+      type="number"
+    />
+  </div>
+  <button (click)="reset()">RESET</button>
+</div>
