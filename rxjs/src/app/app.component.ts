@@ -43,7 +43,7 @@ export class AppComponent implements OnInit {
     if (this.sourceCurrency === this.targetCurrency) {
       this.converted = this.quantity;
     } else {
-      const apiUrl = `https://v6.exchangerate-api.com/v6/e61eec28c6ec69849dcf827a/pair/${this.targetCurrency}/${this.sourceCurrency}`;
+      const apiUrl = `https://v6.exchangerate-api.com/v6/e61eec28c6ec69849dcf827a/pair/${this.sourceCurrency}/${this.targetCurrency}`;
       this.http.get<RootObject>(apiUrl).subscribe((res) => {
         this.users = res;
       });
