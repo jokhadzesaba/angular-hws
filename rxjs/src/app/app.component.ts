@@ -20,6 +20,7 @@ interface RootObject {
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
+  public title = "rxjs";
   public users!: RootObject;
   public quantity = 0;
   public converted = 0;
@@ -50,9 +51,8 @@ export class AppComponent implements OnInit {
       this.quantity = this.converted * this.users.conversion_rate;
     }
   }
-  public reset(){
+  public reset() {
     this.quantity = 0;
     this.converted = 0;
   }
-
 }
